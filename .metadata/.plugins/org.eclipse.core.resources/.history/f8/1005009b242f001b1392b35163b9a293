@@ -1,0 +1,27 @@
+package com.example.demo.Rest;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+;
+
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
+@RequestMapping("")
+public class RestController {
+
+	@Autowired
+	//MostRecentNewsService mostRecentNewsService;
+
+	@GetMapping("/mostRecentNews/{locale}")
+	public ResponseEntity getMostRecentNews(@PathVariable("locale") String locale) {
+		List<PressReleaseCommonDto> news = mostRecentNewsService.getRecentNews(locale);
+		return new MediaRestResponse<List<PressReleaseCommonDto>>(news);
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.example.demo.bussiness;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.DTOs.Employee;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+	public String processemp(List<Employee> list) {
+		// TODO Auto-generated method stub
+		JsonFactory jsonfactory = new JsonFactory();
+		JsonParser jsonParser = jsonfactory.createJsonParser(jsonFile);
+		return "good";
+	}
+
+}
